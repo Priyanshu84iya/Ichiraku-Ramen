@@ -1,0 +1,680 @@
+/**
+ * COPYRIGHT NOTICE
+ * © 2025 Priyanshu Chaurasiya. All Rights Reserved.
+ * This CSS code for Ichiraku Ramen is proprietary and protected by copyright law.
+ * Unauthorized use, reproduction, modification, distribution, or display of this code
+ * or any portion thereof is strictly prohibited and may result in severe civil and
+ * criminal penalties, and will be prosecuted to the maximum extent possible under law.
+ * 
+ * For licensing inquiries or to purchase this website, please contact:
+ * Priyanshu Chaurasiya via GitHub: https://github.com/Priyanshu84iya
+ */
+
+/* variables */
+
+:root {
+	--blurry-bg: rgba(255, 255, 255, 0.054);
+	--glass-border: rgba(255, 255, 255, 0.18);
+	--bg-color-solid: rgba(13, 12, 10);
+	--bg-color: linear-gradient(180deg, rgba(13, 12, 10, 1) 0%, rgb(20, 20, 17) 60%, rgb(31, 28, 25) 100%);
+	--accent-color: rgb(245, 161, 6);
+	--accent-color2: rgb(250, 186, 67);
+	--text-color: rgb(233, 233, 233);
+	--secondary-text-color: rgb(179, 176, 176);
+	--gradient: linear-gradient(90deg, rgba(255,207,126,1) 0%, rgba(255,182,53,1) 60%, rgba(255,166,0,1) 100%);
+	--home-gradient: linear-gradient(180deg, rgba(255,207,126,1) 0%, rgba(255,182,53,1) 0.5%, rgba(255,166,0,1) 15%);
+}
+
+/* reset */
+
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	color: var(--text-color);
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+/* general */
+
+html {
+	background: var(--bg-color);
+	background: var(--bg-color-solid);
+	font-family: Noto Sans, sans-serif;
+	scroll-behavior: smooth;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h1 {
+	margin: 20vh auto 0 auto;
+	font-size: 4rem;
+	font-weight: 500;
+}
+
+h2 {
+	font-family: Noto Sans JP, sans-serif;
+	font-size: 3.5rem;
+	font-weight: 300;
+	margin-bottom: 2%;
+}
+
+h3 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	text-align: center;
+	margin: 8% auto 4% auto;
+	color: var(--accent-color);
+}
+
+h4 {
+	font-size: 1.8rem;
+	margin: 2% auto 1% auto;
+	font-weight: 500;
+	color: var(--accent-color);
+}
+
+h3, h4, legend {
+	font-family: Poppins, sans-serif;
+}
+
+.about-header {
+	margin: 0 auto 2% auto;
+}
+
+body {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+section {
+	min-height: 100vh;
+	margin: 0;
+	width: 100%;
+	scroll-margin-top: 1rem;
+}
+
+legend {
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-align: center;
+	color: var(--accent-color);
+	margin-bottom: 3%;
+}
+
+p {
+	margin: 0 0 2px 0;
+	text-wrap: wrap;
+	font-size: 0.9rem;
+}
+
+/* backgrounds */
+
+header {
+	margin: unset;
+	padding: unset;
+	border: unset;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#header-img {
+	position: absolute;
+	z-index: -2;
+	width: 100%;
+	height: 100vh;
+	max-width: unset !important;
+	filter: saturate(135%);
+	object-fit: cover;
+}
+
+#page-bg {
+	background: url(media/126480823-narutomaki-padrão-sem-emenda-de-comida-japonesa-no-fundo-rosa-removebg-preview.png);
+	position: absolute;
+	right: 0;
+	top: 100%;
+	width: 100%;
+	height: 304.5vh;
+	z-index: -1;
+	opacity: 0.01;
+}
+
+/* Mobile navigation */
+
+.mobile-nav-toggle {
+	display: none;
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	background-color: var(--accent-color);
+	padding: 0.5rem;
+	border-radius: 50%;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.mobile-nav-toggle i {
+	color: var(--bg-color-solid);
+	font-size: 1.5rem;
+}
+
+.mobile-nav {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 100vh;
+	background-color: rgba(13, 12, 10, 0.95);
+	z-index: 999;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: width 0.3s ease-in-out;
+}
+
+.mobile-nav.show {
+	width: 100%;
+	display: flex;
+}
+
+.mobile-nav-link {
+	padding: 1rem;
+	font-size: 1.5rem;
+	color: var(--accent-color);
+	margin: 0.5rem 0;
+}
+
+/* buttons/icon */
+
+button {
+	background-color: var(--accent-color);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: unset;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button:hover {
+	background: var(--gradient);
+}
+
+/* Navigation buttons repositioning */
+#menu-to-home, #menu-to-order, #order-to-menu, #order-to-about, #about-to-order, #about-to-home {
+	position: fixed;
+	bottom: 2rem;
+	z-index: 100;
+}
+
+#menu-to-home, #about-to-home {
+	right: 2rem;
+}
+
+#menu-to-order, #order-to-menu, #order-to-about, #about-to-order {
+	right: 5rem;
+}
+
+i {
+	color: var(--bg-color-solid);
+	font-size: 1.1em;
+}
+
+/* 1st page, navbar */
+
+.shadow {
+	background:
+		linear-gradient(
+		  to top,
+		  hsl(0, 0%, 0%) 0%,
+		  hsla(0, 0%, 0%, 0.998) 0.1%,
+		  hsla(0, 0%, 0%, 0.995) 0.4%,
+		  hsla(0, 0%, 0%, 0.988) 1.1%,
+		  hsla(0, 0%, 0%, 0.977) 2.4%,
+		  hsla(0, 0%, 0%, 0.959) 4.4%,
+		  hsla(0, 0%, 0%, 0.932) 7.3%,
+		  hsla(0, 0%, 0%, 0.894) 11.2%,
+		  hsla(0, 0%, 0%, 0.845) 16.4%,
+		  hsla(0, 0%, 0%, 0.781) 22.9%,
+		  hsla(0, 0%, 0%, 0.701) 31%,
+		  hsla(0, 0%, 0%, 0.604) 40.7%,
+		  hsla(0, 0%, 0%, 0.487) 52.4%,
+		  hsla(0, 0%, 0%, 0.349) 66%,
+		  hsla(0, 0%, 0%, 0.187) 81.8%,
+		  hsla(0, 0%, 0%, 0) 100%
+		);
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	height: 100vh;
+}
+
+.nav-container {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 80%;
+	z-index: 1;
+}
+
+.nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2% 0 0 0;
+	margin-top: 47vh;
+	height: auto;
+	flex-wrap: wrap;
+}
+
+.nav-button {
+	padding: 6px 30px;
+	margin: 2% auto;
+	font-size: 2em;
+	font-weight: 400;
+	color: var(--text-color);
+	background-color: transparent;
+	transition: .2s;
+	border-radius: 12px;
+}
+
+.nav-button:hover {
+	background: var(--home-gradient);
+	color: var(--bg-color-solid);
+}
+
+/* 2nd page, menu */
+
+.menu {
+	padding: 2rem 0;
+	margin: auto;
+	max-width: 100%;
+	align-self: center;
+	justify-content: center;
+	align-content: center;
+}
+
+.menu-box>h3 {
+	margin-top: unset;
+}
+
+.menu-box {
+	background: var(--blurry-bg);
+	backdrop-filter: blur(4.5px);
+	-webkit-backdrop-filter: blur(4.5px);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	padding: 4%;
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	width: 90%;
+	max-width: 800px;
+}
+
+.menu-item {
+	margin-top: auto;
+	margin-bottom: 1.5rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.price {
+	font-style: italic;
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: var(--secondary-text-color)
+}
+
+.ingredients {
+	font-weight: 300;
+	padding-right: 15%;
+}
+
+.warning {
+	font-weight: 400;
+	color: orange;
+}
+
+img.item {
+	float: right;
+	width: 13%;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 12px 0 10px 0;
+	max-width: 100px;
+	min-width: 60px;
+}
+
+/* 3rd page, order */
+
+hr {
+	color: var(--secondary-text-color);
+	opacity: 5%;
+	margin: 4% auto;
+	width: 100%;
+}
+
+.order {
+	align-content: center;
+	border-bottom: 1px solid rgba(233, 233, 233, 0.3);
+	border-top: 1px solid rgba(233, 233, 233, 0.3);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 0;
+}
+
+.order>form#order-box>h3 {
+	margin-top: unset;
+}
+
+.order>form#order-box {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	flex-direction: column;
+	width: 90%;
+	max-width: 600px;
+	text-align: left;
+	background: var(--blurry-bg);
+	backdrop-filter: blur(4.5px);
+	-webkit-backdrop-filter: blur(4.5px);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	padding: 1.5rem;
+	margin: auto;
+}
+
+input, textarea {
+	color: var(--text-color);
+	background-color: rgb(87, 87, 87);
+	border: 1px solid darkgray;
+	border-radius: 6px;
+	padding: 4px;
+}
+
+textarea {
+	resize: none;
+}
+
+input {
+	margin-right: 10px;
+}
+
+.option {
+	display: flex;
+	justify-content: space-between;
+	text-wrap: nowrap;
+	margin-top: auto;
+	margin-bottom: 1rem;
+	align-items: center;
+}
+
+fieldset {
+	border: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 3%;
+	row-gap: 8px;
+	width: 100%;
+}
+
+.side-dishes {
+	padding-right: 5%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+label {
+	padding: 10px 0;
+	margin: 0 0 2% 0;
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.number-inputs {
+	width: auto;
+}
+
+.requests {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	width: 100%;
+}
+
+input[type="number"] {
+	width: 60px;
+	height: 40px;
+	padding: 2px;
+	text-align: center;
+	margin-right: unset;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	accent-color: var(--accent-color);
+	width: 18px;
+	height: 18px;
+	margin-right: 8px;
+}
+
+textarea {
+	margin: 10px 0;
+	height: 100px;
+	width: 100%;
+}
+
+#checkout {
+	display: block;
+	font-size: 1em;
+	font-weight: 600;
+	padding: 12px;
+	width: 100%;
+	cursor: pointer;
+	background: var(--gradient);
+	background-size: 200% 200%;
+	background-position: right;
+	border: none;
+	color: var(--bg-color-solid);
+	transition: all .2s linear;
+	margin-top: 1rem;
+	border-radius: 8px;
+	height: auto;
+}
+
+#checkout:hover {
+	background-position: left;
+}
+
+/* 4th page, about */
+
+.about-container {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	flex-direction: row;
+	margin: auto;
+	padding: 2rem 1rem;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.about-restaurant, .about-me {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 90%;
+	max-width: 400px;
+	border: 1px solid black;
+	border-radius: 12px;
+	margin: 1rem;
+	background: var(--blurry-bg);
+	backdrop-filter: blur(4.5px);
+	-webkit-backdrop-filter: blur(4.5px);
+	border: 1px solid var(--glass-border);
+}
+
+.about-pic {
+	align-self: center;
+	margin: 0;
+	border-radius: 6px;
+	max-width: 80%;
+	height: auto;
+}
+
+.about-me>p, .about-restaurant>p {
+	font-size: 1em;
+	font-weight: 300;
+	text-align: justify;
+	margin: 1rem 0 0;
+}
+
+footer {
+	text-align: center;
+	font-weight: 200;
+	font-size: 0.8rem;
+	margin: 1rem 0;
+	padding: 0.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+	h1 {
+		font-size: 3.5rem;
+	}
+	
+	h2 {
+		font-size: 3rem;
+	}
+	
+	h3 {
+		font-size: 2.2rem;
+	}
+	
+	.nav-button {
+		font-size: 1.8em;
+	}
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 3rem;
+		margin: 15vh auto 0 auto;
+	}
+	
+	h2 {
+		font-size: 2.5rem;
+	}
+	
+	h3 {
+		font-size: 2rem;
+	}
+	
+	.nav {
+		flex-direction: column;
+		margin-top: 35vh;
+	}
+	
+	.about-container {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.menu-box {
+		width: 95%;
+	}
+	
+	.about-restaurant, .about-me {
+		max-width: 95%;
+	}
+}
+
+@media (max-width: 576px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+	
+	h2 {
+		font-size: 2rem;
+	}
+	
+	h3 {
+		font-size: 1.8rem;
+	}
+	
+	h4 {
+		font-size: 1.5rem;
+	}
+	
+	.nav-button {
+		font-size: 1.6em;
+		padding: 4px 15px;
+	}
+	
+	.mobile-nav-toggle {
+		display: flex;
+	}
+	
+	.nav {
+		display: none;
+	}
+	
+	.ingredients {
+		padding-right: 0;
+		margin-top: 80px;
+	}
+	
+	img.item {
+		width: 80px;
+		position: relative;
+		display: block;
+		margin: 0 auto 10px auto;
+	}
+	
+	.option {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.side-dishes {
+		width: 100%;
+	}
+	
+	input[type="number"] {
+		margin-top: 5px;
+		align-self: flex-end;
+	}
+	
+	label {
+		font-size: 1rem;
+	}
+}
